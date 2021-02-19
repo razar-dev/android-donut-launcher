@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--
+        Copyright (C) 2007 The Android Open Source Project Licensed under the Apache License,
+        Version 2.0 (the "License"); you may not use this file except in compliance with the
+        License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+        Unless required by applicable law or agreed to in writing, software distributed under the
+        License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+        either express or implied. See the License for the specific language governing permissions
+        and limitations under the License.
+    -->
+
+<ussr.razar.android.dount.launcher.DragLayer
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:launcher="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/drag_layer"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <!-- The workspace contains 3 screens of cells -->
+    <ussr.razar.android.dount.launcher.Workspace
+        android:id="@+id/workspace"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+
+        launcher:defaultScreen="1">
+
+        <include layout="@layout/workspace_screen" />
+        <include layout="@layout/workspace_screen" />
+        <include layout="@layout/workspace_screen" />
+
+    </ussr.razar.android.dount.launcher.Workspace>
+
+    <SlidingDrawer
+        android:id="@+id/drawer"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+
+        android:orientation="horizontal"
+        android:bottomOffset="4dip"
+        android:handle="@+id/all_apps"
+        android:content="@+id/content">
+
+        <ussr.razar.android.dount.launcher.HandleView
+            android:id="@id/all_apps"
+            android:layout_width="56dip"
+            android:layout_height="fill_parent"
+
+            android:background="@drawable/handle"
+
+            android:focusable="true"
+            android:clickable="true"
+
+            android:scaleType="center"
+            android:src="@drawable/handle_icon"
+
+            launcher:direction="vertical" />
+
+        <ussr.razar.android.dount.launcher.AllAppsGridView
+            android:id="@id/content"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+
+            launcher:texture="@drawable/pattern_carbon_fiber_dark"
+
+            android:scrollbarStyle="outsideInset"
+            android:drawSelectorOnTop="false"
+            android:listSelector="@drawable/grid_selector"
+
+            android:nextFocusLeft="@id/all_apps"
+            android:nextFocusDown="@id/content"
+            android:nextFocusUp="@id/content"
+            android:nextFocusRight="@id/content"
+
+            android:verticalSpacing="10dip"
+            android:numColumns="5" />
+
+    </SlidingDrawer>
+
+    <ussr.razar.android.dount.launcher.DeleteZone
+        android:id="@+id/delete_zone"
+        android:layout_width="49dip"
+        android:layout_height="wrap_content"
+
+        android:scaleType="center"
+        android:src="@drawable/ic_delete"
+        android:background="@drawable/delete_zone_selector"
+
+        android:layout_marginBottom="-25dip"
+        android:layout_gravity="right|center_vertical"
+        android:visibility="invisible"
+
+        launcher:direction="vertical" />
+
+</ussr.razar.android.dount.launcher.DragLayer>

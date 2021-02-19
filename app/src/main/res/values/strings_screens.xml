@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<string name="group_screens">Screens</string>
+
+<string name="key_default_screen">key_default_screen</string>
+<string name="default_screen_title">Default screen</string>
+<string name="default_screen_summary">The default screen Home++ will start with</string>
+
+<string name="key_screen_number">key_screen_number</string>
+<string name="screen_number_title">Screen number</string>
+
+</resources>

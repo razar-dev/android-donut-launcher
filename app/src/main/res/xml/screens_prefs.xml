@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <ListPreference
+        android:key="@string/key_screen_number"
+        android:title="@string/screen_number_title"
+        android:entries="@array/screen_number_entries"
+        android:entryValues="@array/screen_number_entries"
+        android:defaultValue="3" />
+
+    <ListPreference
+        android:key="@string/key_default_screen"
+        android:title="@string/default_screen_title"
+        android:summary="@string/default_screen_summary"
+        android:defaultValue="2" />
+
+
+</PreferenceScreen>

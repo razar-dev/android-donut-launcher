@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ussr.razar.android.dount.launcher"
+    android:versionCode="3"
+    android:versionName="0.9.2">
+
+
+    <permission
+        android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"
+        android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
+        android:protectionLevel="normal"
+        android:label="@string/permlab_uninstall_shortcut"
+        android:description="@string/permdesc_uninstall_shortcut" />
+    <permission
+        android:name="com.android.launcher.permission.READ_SETTINGS"
+        android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
+        android:protectionLevel="normal"
+        android:label="@string/permlab_read_settings"
+        android:description="@string/permdesc_read_settings" />
+    <permission
+        android:name="com.android.launcher.permission.WRITE_SETTINGS"
+        android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
+        android:protectionLevel="normal"
+        android:label="@string/permlab_write_settings"
+        android:description="@string/permdesc_write_settings" />
+
+
+
+    <uses-permission
+        android:name="android.permission.CALL_PHONE" />
+    <uses-permission
+        android:name="android.permission.EXPAND_STATUS_BAR" />
+    <uses-permission
+        android:name="android.permission.GET_TASKS" />
+    <uses-permission
+        android:name="android.permission.READ_CONTACTS" />
+    <uses-permission
+        android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission
+        android:name="android.permission.SET_WALLPAPER_HINTS" />
+    <uses-permission
+        android:name="android.permission.VIBRATE" />
+
+    <uses-permission
+        android:name="ussr.razar.android.dount.launcher.permission.READ_SETTINGS" />
+    <uses-permission
+        android:name="ussr.razar.android.dount.launcher.permission.WRITE_SETTINGS" />
+    <uses-permission
+        android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission
+        android:name="android.permission.EXPAND_STATUS_BAR" />
+
+    <application
+        android:label="@string/application_name"
+        android:icon="@drawable/ic_launcher_home"
+        android:allowBackup="false">
+
+        <activity
+            android:name="ussr.razar.android.dount.launcher.Launcher"
+            android:launchMode="singleTask"
+            android:clearTaskOnLaunch="true"
+            android:stateNotNeeded="true"
+            android:theme="@style/Transparent"
+            android:screenOrientation="nosensor"
+            android:windowSoftInputMode="stateUnspecified|adjustPan">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <action
+                    android:name="android.intent.action.MAIN" />
+                <category
+                    android:name="android.intent.category.HOME" />
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+                <category
+                    android:name="android.intent.category.MONKEY" />
+            </intent-filter>
+        </activity>
+
+        <!-- Enable system-default search mode for any activity in Home -->
+        <meta-data
+            android:name="android.app.default_searchable"
+            android:value="*" />
+
+        <!-- Intent received used to install shortcuts from other applications -->
+        <receiver
+            android:name="ussr.razar.android.dount.launcher.InstallShortcutReceiver"
+            android:permission="com.android.launcher.permission.INSTALL_SHORTCUT">
+            <intent-filter>
+                <action
+                    android:name="com.android.launcher.action.INSTALL_SHORTCUT" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Intent received used to uninstall shortcuts from other applications -->
+        <receiver
+            android:name="ussr.razar.android.dount.launcher.UninstallShortcutReceiver"
+            android:permission="com.android.launcher.permission.UNINSTALL_SHORTCUT">
+            <intent-filter>
+                <action
+                    android:name="com.android.launcher.action.UNINSTALL_SHORTCUT" />
+            </intent-filter>
+        </receiver>
+
+        <!-- The settings provider contains Home's data, like the workspace favorites -->
+        <provider
+            android:name="ussr.razar.android.dount.launcher.LauncherProvider"
+            android:authorities="ussr.razar.android.dount.launcher.settings"
+            android:writePermission="ussr.razar.android.dount.launcher.permission.WRITE_SETTINGS"
+            android:readPermission="ussr.razar.android.dount.launcher.permission.READ_SETTINGS" />
+
+        <activity
+            android:name="ussr.razar.android.dount.launcher.ScreenPrefActivity"
+            android:screenOrientation="sensor" />
+
+    </application>
+
+</manifest>
