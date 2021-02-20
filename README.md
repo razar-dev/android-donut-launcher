@@ -1,5 +1,4 @@
 # Donut launcher
-PowerTube - Youtube-dl client for Android
 
 <img src="https://raw.githubusercontent.com/razar-dev/android-donut-launcher/master/image/home.png"/>
 
